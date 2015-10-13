@@ -1,0 +1,12 @@
+Hệ thống phải kiểm tra được email được các bạn nữ nhập vào (phải là mail trường, không trùng với danh sách email các bạn nam)
+Mã xác nhận được tạo ra ngẫu nhiên và dựa vào thời gian tham gia (để đảm bảo tính duy nhất của mã xác nhận)
+Ngay sau khi mã xác nhận được tạo ra, nó sẽ được lưu vào cơ sở dữ liệu tương ứng với record của email bạn nữ ấy
+Trong trường hợp email gửi không thành công, bạn nữ có thể yêu cầu hệ thống gửi lại email xác nhận, mã xác nhận khi đó vẫn giữ nguyên
+Sau khi bước đăng ký tham gia hoàn tất, bạn nữ được quay ngẫu nhiên lần thứ nhất để chọn bạn nam "hầu hạ" mình
+Bạn nam nào đã được chọn rồi sẽ không tiếp tục được chọn bởi bạn nữ khác nữa
+Sau bước chọn bạn nam, các bạn nữ sẽ được quay ngẫu nhiên lần thứ hai để chọn một việc cho các bạn nam làm
+Mỗi việc sẽ bị giới hạn số lần xuất hiện, nếu việc A đã được chọn đến giới hạn n lần thì việc đó sẽ không tiếp tục được chọn nữa
+Tuy bị lọc ra khỏi danh sách nhưng những bạn nam/công việc đã được chọn rồi vẫn xuất hiện trong visualisation
+Visualisation không quá 5 giây cho mỗi lần quay
+Mỗi bạn nữ có đúng hai lần quay DUY NHẤT, một để chọn bạn nam và một để chọn việc
+Hệ thống sẽ lưu lại email và các thông tin sau khi bạn nữ đã tham gia xong, hệ thống sẽ ngăn không cho email đó quay tiếp

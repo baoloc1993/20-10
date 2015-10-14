@@ -18,14 +18,14 @@
 		<div class="form-group">
 			<label class="control-label col-sm-3">Your name</label>
 			<div class="col-sm-9">
-				<input type="text" class="form-control name-char" id="name" name="name" placeholder="Enter your name">
+				<input type="text" class="form-control name-char" id="name" name="name" placeholder="Enter your name" required>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="control-label col-sm-3">NTU Email</label>
 			<div class="col-sm-9">
 				<div class="input-group">
-					<input type="text" class="form-control email-char" id="email" name="email" placeholder="Enter your email">
+					<input type="text" class="form-control email-char" id="email" name="email" placeholder="Enter your email" required>
 					<span class="input-group-addon">@e.ntu.edu.sg</span>
 				</div>
 			</div>
@@ -65,18 +65,24 @@
 <script>
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover();   
-});
 
-$('.name-char').bind('keyup blur',function(){ 
-    var node = $(this);
-    node.val(node.val().replace(/[^a-zA-Z ]/g,'') ); }
-);
-$('.email-char').bind('keyup blur',function(){ 
-    var node = $(this);
-    node.val(node.val().replace(/[^a-zA-Z0-9_.]/g,'') ); }
-);
+	$('.name-char').on("keyup keydown keypress focusout", function(){ 
+		var node = $(this);
+		node.val(node.val().replace(/[^a-zA-Z ]/g,'') ); }
+	);
+	
+	$('.email-char').on("keyup keydown keypress focusout", function(){
+		var node = $(this);
+		node.val(node.val().replace(/[^a-zA-Z0-9_.]/g,'') ); }
+	);
+	
+	$("#goSpin").click(function() {
+		window.location.replace("verification.php");
+	});
+
+});
 function toggler(divId) {
-    $("#" + divId).toggle();
+	$("#" + divId).toggle();
 };
 </script>
 

@@ -1,3 +1,5 @@
 Cơ sở dữ liệu có thể được quản lí bởi MySQL
 Back-end có thể lập trình dựa trên PHP
 Front-end có thể dùng các JS framework và library như jQuery, kết hợp với CSS framework như Bootstrap
+Mỗi email của mỗi bạn nữ sẽ có đúng một activation code tương ứng, để đảm bảo sự uniqueness này, có thể generate code dựa theo thời gian đăng ký và thêm một ít kí tự ngẫu nhiên
+Hệ thống sẽ quyết định kết quả trước rồi mới visualise cho các bạn nữ xem (vì trong quá trình visualisation vẫn hiện những đối tượng đã bị lọc ra)

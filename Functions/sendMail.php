@@ -6,6 +6,7 @@ require 'PHPMailer/PHPMailerAutoload.php';	// Can be edited to the location of P
  * with provided receiver name as well as all the content
  * of the email
  * Use the PHPMailer library
+ * return error message on failure
  *
  * $addr is the receiver email address
  * $name is the receiver name
@@ -40,12 +41,8 @@ function sendMail($addr, $name, $subject, $body, $altbody) {
 
 	// Output error message in case of failure
 	if(!$mail->send()) {
-		echo 'Message could not be sent.';
-		echo 'Mailer Error: ' . $mail->ErrorInfo;
-	} else {
-		echo 'Message has been sent';
+		return $mail->ErrorInfo;
 	}
-
 }
 
 ?>

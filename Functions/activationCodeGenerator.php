@@ -3,7 +3,7 @@
  * Randomly generate a string of length n
  * with full of arbitary character from A-Z and 0-9
 */
-function CharacterRandomize($n = 1) {
+function characterRandomize($n = 1) {
 	return strtoupper(substr(sha1(rand()), 0, $n));
 }
 
@@ -13,13 +13,13 @@ function CharacterRandomize($n = 1) {
  * base on the current time (to milliseconds) and
  * some random strings
 */
-function ActivationCodeGenerate() {
+function activationCodeGenerate() {
 	$timestamp = microtime();	// Get the exact current time
 
 	// Create some random characters
-	$pre_randChar = CharacterRandomize(2);
-	$mid_randChar = CharacterRandomize(3);
-	$post_randChar = CharacterRandomize(5);
+	$pre_randChar = characterRandomize(2);
+	$mid_randChar = characterRandomize(3);
+	$post_randChar = characterRandomize(5);
 
 	// Combine the useful parts into one string
 	$timestamp_ar = explode(" ", $timestamp);

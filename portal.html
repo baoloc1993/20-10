@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+<br>
+<form class="form-horizontal" role="form" action="Functions/register.php" method="post">
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-7">
+		<div class="form-group">
+			<label class="control-label col-sm-3">Your name</label>
+			<div class="col-sm-9">
+				<input type="text" class="form-control name-char" id="name" name="name" placeholder="Enter your name">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-3">NTU Email</label>
+			<div class="col-sm-9">
+				<div class="input-group">
+					<input type="text" class="form-control email-char" id="email" name="email" placeholder="Enter your email" aria-describedby="help_email">
+					<span class="input-group-addon">@e.ntu.edu.sg</span>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-3">
+				<input type="submit" class="btn btn-success btn-block" id="submit" name="submit" value="Submit">
+			</div>
+			<div class="col-sm-6 text-right">
+				<input type="button" class="btn btn-link" id="resendEmail" name="resendEmail" value="Didn't get your verification email?" title="Help" data-toggle="popover" data-trigger="hover" data-content="Just re-enter your name and NTU email, then submit one more time!" data-placement="bottom">
+			</div>
+		</div>
+		<br><br>
+		<div class="form-group">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-9">
+				<input type="button" class="btn btn-default btn-block" id="goSpin" name="goSpin" value="Registered already? Go and Spin!">
+			</div>
+		</div>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+</form>
+</div>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+});
+
+$('.name-char').bind('keyup blur',function(){ 
+    var node = $(this);
+    node.val(node.val().replace(/[^a-zA-Z ]/g,'') ); }
+);
+$('.email-char').bind('keyup blur',function(){ 
+    var node = $(this);
+    node.val(node.val().replace(/[^a-zA-Z0-9_.]/g,'') ); }
+);
+</script>
+
+
+</body>
+</html>

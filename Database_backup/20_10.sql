@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2015 at 09:17 AM
+-- Generation Time: Oct 15, 2015 at 09:28 AM
 -- Server version: 5.6.25
 -- PHP Version: 5.6.11
 
@@ -73,20 +73,20 @@ INSERT INTO `ladies` (`id`, `name`, `email`, `actcode`, `spin`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `male_particiant`
+-- Table structure for table `male_participant`
 --
 
-CREATE TABLE IF NOT EXISTS `male_particiant` (
+CREATE TABLE IF NOT EXISTS `male_participant` (
   `id` int(11) NOT NULL COMMENT 'Auto increasing',
   `name` text NOT NULL,
   `email` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `male_particiant`
+-- Dumping data for table `male_participant`
 --
 
-INSERT INTO `male_particiant` (`id`, `name`, `email`) VALUES
+INSERT INTO `male_participant` (`id`, `name`, `email`) VALUES
 (1, 'Ngo Le Bao Trung', 'lebaotru001@e.ntu.edu.sg'),
 (3, 'Ngo Le Bao Loc', 'lebaoloc001@e.ntu.edu.sg'),
 (4, 'Tran Vu Xuan Nhat', 'nhat002@e.ntu.edu.sg');
@@ -108,9 +108,9 @@ ALTER TABLE `ladies`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `male_particiant`
+-- Indexes for table `male_participant`
 --
-ALTER TABLE `male_particiant`
+ALTER TABLE `male_participant`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -128,10 +128,10 @@ ALTER TABLE `blacklist`
 ALTER TABLE `ladies`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Auto increasing',AUTO_INCREMENT=9;
 --
--- AUTO_INCREMENT for table `male_particiant`
+-- AUTO_INCREMENT for table `male_participant`
 --
-ALTER TABLE `male_particiant`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Auto increasing',AUTO_INCREMENT=5;
+ALTER TABLE `male_participant`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Auto increasing',AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

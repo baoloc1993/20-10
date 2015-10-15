@@ -82,7 +82,9 @@ $(document).ready(function(){
 
 });
 function toggler(divId) {
-	$("#" + divId).toggle();
+	if ($("#name").val() != "" && $("#email").val() != "") {
+		$("#" + divId).toggle();
+	}
 };
 </script>
 

@@ -7,8 +7,17 @@ include("sendMail.php");
 $name = $_POST["name"];
 $email = $_POST["email"] . "@e.ntu.edu.sg";
 
-$sql = "SELECT email, actcode FROM ladies WHERE email='". $email ."'";
+// Check if email is in blacklist
+$sql_bl = "SELECT email FROM blacklist WHERE email='". $email ."'";
+$result = $conn->query($sql_bl);
+if ($result->num_rows > 0) {
+    // in case email already existed
+	// redirect back to portal.html
+	Redirect('../portal.html', false);	// Redirect to portal page
+}
 
+// Check if email is already in database
+$sql = "SELECT email, actcode FROM ladies WHERE email='". $email ."'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

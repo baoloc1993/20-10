@@ -43,8 +43,8 @@ var spinButtonImgOff = "spin_off.png";
 var theSpeed         = 20; 		 // Controls how often the spin function is called (is miliseconds value for animation timer).
 var pointerAngle     = 0;  	 	 // The angle / location around the wheel where the pointer indicaing the prize is located. Can be any value you like, 0 is top (12 oclock) 180 is bottom (6 o'clock) etc.
 var doPrizeDetection = true; 	 // Set to true if you want the code to detect the prize the user has won when the spinning has stopped. Prizes need to be specified in the prizes array.
-var spinMode         = "random"; // Values can be: random, determinedAngle, determinedPrize.
-var determinedGetUrl = "";  	 // Set to URL of the server-side process to load via ajax when spinMode is determinedAngle or determinedPrize.
+var spinMode         = "determinedPrize"; // Values can be: random, determinedAngle, determinedPrize.
+var determinedGetUrl = "get_determined_prize.php";  	 // Set to URL of the server-side process to load via ajax when spinMode is determinedAngle or determinedPrize.
 /*
 	The following files included in the download can be used to test the different modes (you will need an Apache server; I use XAMPP on my local machine).
 	determinedPrize: get_determined_prize.php;  // Always returns "2" (so will win prize 3).
@@ -65,7 +65,8 @@ prizes[3] = {"name" : "Ong Van Vinh", "startAngle" : 135, "endAngle" : 179};
 prizes[4] = {"name" : "Nguyen Phan Huy", "startAngle" : 180, "endAngle" : 224};
 prizes[5] = {"name" : "Tran Vu Xuan Nhat", "startAngle" : 225, "endAngle" : 269};
 prizes[6] = {"name" : "Thai Nguyen Hung", "startAngle" : 270, "endAngle" : 314};
-prizes[7] = {"name" : "NIghtWalker", "startAngle" : 315, "endAngle" : 360};
+prizes[7] = {"name" : "NIghtWalker", "startAngle" : 315, "endAngle" : 340};
+prizes[8] = {"name" : "Gambit", "startAngle" : 341, "endAngle" : 360};
 
 // Idea: an idea I had for this, but not implimented, is that if you wanted some the prizes / segments in your wheel to be "winners" and some to be "loosers"
 // you could add a property to the items in the prize array stating if win/loose and then in the doSpin function code that is executed when the spinning has

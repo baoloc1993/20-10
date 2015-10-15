@@ -2,19 +2,31 @@
 include("security.php");	// For authentification
 include("../Functions/db_connect.php");	// Open connection to database
 
-if (isset($_GET['email']) && isset($_GET['method'])) {	// Get email and method to handle
-	$email = $_GET["email"];
+if (isset($_GET['id'])) {	// Get id to handle
+	$id = $_GET["id"];
+} else {
+	$id = "";
+}
+
+if (isset($_GET['method'])) {	// Get method to handle
 	$method = $_GET["method"];
 } else {
-	$email = "";
 	$method = "";
 }
 
+if (isset($_GET['email']) && isset($_GET['name'])) {	// Get email and name to handle
+	$email = $_GET["email"];
+	$name = $_GET["name"];
+} else {
+	$email = "";
+	$name = "";
+}
+
 /**
- * DELETE data from blacklist
+ * DELETE data from ladies
  */
 if ($method == "del") {
-	$sql_del = "DELETE FROM blacklist WHERE email='" . $email . "'";
+	$sql_del = "DELETE FROM male_particiant WHERE id='" . $id . "'";
 	if ($conn->query($sql_del) === TRUE) {
 		// Success
 	} else {
@@ -22,12 +34,11 @@ if ($method == "del") {
 	}
 }
 
-
 /**
  * ADD data to blacklist
  */
 if ($method == "add") {
-	$sql_add = "INSERT INTO blacklist (email) VALUES ('" . $email . "')";
+	$sql_add = "INSERT INTO male_particiant (name, email) VALUES ('" . $name . "','" . $email . "@e.ntu.edu.sg')";
 	if ($conn->query($sql_add) === TRUE) {
 		// Success
 	} else {
@@ -35,18 +46,19 @@ if ($method == "add") {
 	}
 }
 
-
 /**
- * SELECT data from blacklist to display
+ * SELECT data from ladies to display
  */
-$sql_sel = "SELECT * FROM blacklist";	// SQL query
+$sql_sel = "SELECT * FROM male_particiant";	// SQL query
 $result = $conn->query($sql_sel);	// Execute SQL query
 
 $output = "";	// To store the list of blacklist emails in order to display
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        $output .= "&nbsp;<span class='dbl-del' id='" . $row["id"] . "'>&nbsp;" . $row["email"] . "</span>&nbsp;&nbsp;&nbsp; - &nbsp;";
+        $output .= "<tr><td>" . $row['id'] . "</td><td>" . $row['name'] . "</td><td>";
+		$output .= $row['email'] . "</td><td>";
+		$output .= "<button type='button' id='" . $row['id'] . "' class='btn btn-danger btn-sm dbl-del'><span class='glyphicon glyphicon-remove-sign'></span> Remove</button></td></tr>";
     }
 } else {
     echo "0 results";
@@ -70,9 +82,13 @@ $conn->close();
 <div class="row">
   <form>
 	<div class="form-group">
-		<div class="col-sm-12">
+		<div class="col-sm-5">
+			<input type="text" class="form-control" id="name" name="name" placeholder="Enter name" required>
+		</div>
+		<div class="col-sm-7">
 			<div class="input-group">
 				<input type="text" class="form-control" id="pw" name="pw" value="c0ntr@1/vnNtu" style="display:none">
+				<input type="text" class="form-control" id="method" name="method" value="add" style="display:none">
 				<input type="text" class="form-control" id="email" name="email" placeholder="Enter email" required>
 				<span class="input-group-addon">@e.ntu.edu.sg</span>
 				<span class="input-group-btn">
@@ -83,29 +99,35 @@ $conn->close();
 	</div>
   </form>
 </div>
+<br>
+<div class="row">
+	<table class="table table-striped">
+		<thead>
+		  <tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Remove?</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <?php echo $output; ?>
+		</tbody>
+  </table>
 
-<br><br><br>
-<div class="row text-center">
-	<h3>List of all blacklisted emails: (double click to delete from blacklist)</h3>
-	<br><br>
-	<?php echo $output ?>
 </div>
 
 </div>
 
 <script>
 $(document).ready(function(){
-	$('#email').focus();
-	
-	$('#submit').click(function(){
-		window.location.replace('blacklist.php?method=add&email=' + $('#email').val() + "@e.ntu.edu.sg&pw=c0ntr@1/vnNtu");
-	});
-	
-	$(".dbl-del").dblclick(function() {
-		window.location.replace('blacklist.php?method=del&email=' + $(this).text().trim() + "&pw=c0ntr@1/vnNtu");
+
+	$(".dbl-del").click(function() {
+		window.location.replace('maleparticiant.php?method=del&id=' + $(this).attr('id').trim() + "&pw=c0ntr@1/vnNtu");
 	});
 	
 });
 </script>
+
 </body>
 </html>

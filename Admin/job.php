@@ -23,7 +23,7 @@ if (isset($_GET['job']) && isset($_GET['descr'])) {	// Get job and description t
 }
 
 /**
- * DELETE data from ladies
+ * DELETE data from job
  */
 if ($method == "del") {
 	$sql_del = "DELETE FROM job WHERE id='" . $id . "'";
@@ -35,7 +35,7 @@ if ($method == "del") {
 }
 
 /**
- * ADD data to blacklist
+ * ADD data to job
  */
 if ($method == "add") {
 	$sql_add = "INSERT INTO job (job, descr) VALUES ('" . $job . "','" . $descr . "')";
@@ -47,12 +47,12 @@ if ($method == "add") {
 }
 
 /**
- * SELECT data from ladies to display
+ * SELECT data from job to display
  */
 $sql_sel = "SELECT * FROM job";	// SQL query
 $result = $conn->query($sql_sel);	// Execute SQL query
 
-$output = "";	// To store the list of blacklist emails in order to display
+$output = "";	// To store the list of jobs in order to display
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {

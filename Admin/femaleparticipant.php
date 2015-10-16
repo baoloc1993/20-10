@@ -28,7 +28,7 @@ if ($method == "del") {
 $sql_sel = "SELECT * FROM ladies";	// SQL query
 $result = $conn->query($sql_sel);	// Execute SQL query
 
-$output = "";	// To store the list of blacklist emails in order to display
+$output = "";	// To store the list of female participant info in order to display
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {

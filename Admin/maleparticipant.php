@@ -23,7 +23,7 @@ if (isset($_GET['email']) && isset($_GET['name'])) {	// Get email and name to ha
 }
 
 /**
- * DELETE data from ladies
+ * DELETE data from male_participant
  */
 if ($method == "del") {
 	$sql_del = "DELETE FROM male_participant WHERE id='" . $id . "'";
@@ -35,7 +35,7 @@ if ($method == "del") {
 }
 
 /**
- * ADD data to blacklist
+ * ADD data to male_participant
  */
 if ($method == "add") {
 	$sql_add = "INSERT INTO male_participant (name, email) VALUES ('" . $name . "','" . $email . "@e.ntu.edu.sg')";
@@ -47,12 +47,12 @@ if ($method == "add") {
 }
 
 /**
- * SELECT data from ladies to display
+ * SELECT data from male_participant to display
  */
 $sql_sel = "SELECT * FROM male_participant";	// SQL query
 $result = $conn->query($sql_sel);	// Execute SQL query
 
-$output = "";	// To store the list of blacklist emails in order to display
+$output = "";	// To store the list of male emails in order to display
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {

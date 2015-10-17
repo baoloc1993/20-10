@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 if (isset($_GET['code'])) {
 	$actcode = $_GET["code"];
 } else {
@@ -24,18 +24,18 @@ if (isset($_GET['code'])) {
     <div class="col-sm-2"></div>
     <div class="col-sm-7">
 		<div class="form-group">
-			<label class="control-label col-sm-3">Verification Code</label>
+			<label class="control-label col-sm-3">Mã xác nhận</label>
 			<div class="col-sm-9">
 				<div class="input-group">
-					<input type="text" style="text-transform: uppercase" class="form-control name-char" id="actcode" name="actcode" placeholder="Enter your verification code here">
+					<input type="text" style="text-transform: uppercase" class="form-control name-char" id="actcode" name="actcode" placeholder="Nhập mã xác nhận mà bạn nhận được qua email nha">
 					<span class="input-group-btn">
-						<button class="btn btn-success" id="submit" type="button">Submit</button>
+						<button class="btn btn-success" id="submit" type="button">Xác nhận!</button>
 					</span>
 				</div>
 				<br>
 				<div class="alert alert-danger" id="alert">
 					<a class="close" id="closealert">&times;</a>
-					<strong>Unsuccessful!</strong> The code you have just entered is incorrect, please check again!
+					<strong>Unsuccessful!</strong> Mã xác nhận bạn vừa nhập không khớp với mã của email mà bạn đăng ký! Hãy kiểm tra lại thông tin và thử lại xem sao!
 				</div>
 			</div>
 		</div>
@@ -53,15 +53,15 @@ if (isset($_GET['code'])) {
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-         <h4 class="modal-title">Where is your verification code?</h4>
+         <h4 class="modal-title">Làm sao tìm được mã xác nhận?</h4>
       </div>
       <div class="modal-body">
-        <p>Check your inbox! An email containing the verification code has been sent to you.</p>
+        <p>Kiểm tra hộp thư đi nào (mail trường ấy)! Ngay sau khi đăng ký, bọn mình đã gửi một email chứa mã xác nhận cho bạn.</p>
 		<br>
-		<a href="portal.html">Not yet got your email?</a>
+		<a href="portal.html">Bạn chưa nhận được email?</a>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng lại</button>
       </div>
     </div>
 

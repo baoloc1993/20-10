@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -16,16 +16,16 @@
     <div class="col-sm-2"></div>
     <div class="col-sm-7">
 		<div class="form-group">
-			<label class="control-label col-sm-3">Your name</label>
+			<label class="control-label col-sm-3">Tên bạn là</label>
 			<div class="col-sm-9">
-				<input type="text" class="form-control name-char" id="name" name="name" placeholder="Enter your name" required>
+				<input type="text" class="form-control name-char" id="name" name="name" placeholder="Tên của bạn là gì? :D" required>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="control-label col-sm-3">NTU Email</label>
 			<div class="col-sm-9">
 				<div class="input-group">
-					<input type="text" class="form-control email-char" id="email" name="email" placeholder="Enter your email" required>
+					<input type="text" class="form-control email-char" id="email" name="email" placeholder="nhớ là mail trường nha, không cần nhập phần đuôi @" required>
 					<span class="input-group-addon">@e.ntu.edu.sg</span>
 				</div>
 			</div>
@@ -33,10 +33,10 @@
 		<div class="form-group">
 			<div class="col-sm-3"></div>
 			<div class="col-sm-3">
-				<input type="submit" class="btn btn-success btn-block" id="submit" name="submit" value="Submit" onclick="toggler('progressbar');">
+				<input type="submit" class="btn btn-success btn-block" id="submit" name="submit" value="Đăng ký" onclick="toggler('progressbar');">
 			</div>
 			<div class="col-sm-6 text-right">
-				<input type="button" class="btn btn-link" id="resendEmail" name="resendEmail" value="Didn't get your verification email?" title="Tips" data-toggle="popover" data-trigger="hover" data-content="Just re-enter your name and NTU email, then submit one more time!" data-placement="bottom">
+				<input type="button" class="btn btn-link" id="resendEmail" name="resendEmail" value="Bạn không nhận được email xác nhận?" title="Tips" data-toggle="popover" data-trigger="hover" data-content="Cứ nhập lại tên và email, bọn mình sẽ gửi lại một email nữa cho bạn ;). Nếu vẫn không được có thể liên hệ trực tiếp ban tổ chức :p" data-placement="bottom">
 			</div>
 		</div>
 		<div class="form-group">
@@ -44,7 +44,7 @@
 			<div class="col-sm-9">
 				<div class="progress" style="display:none" id="progressbar";>
 					<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:100%">
-					Sending verification email...
+					Đang gửi email xác nhận...
 					</div>
 				</div>
 			</div>
@@ -53,7 +53,7 @@
 		<div class="form-group">
 			<div class="col-sm-3"></div>
 			<div class="col-sm-9">
-				<input type="button" class="btn btn-default btn-block" id="goSpin" name="goSpin" value="Registered already? Go and Spin!">
+				<input type="button" class="btn btn-default btn-block" id="goSpin" name="goSpin" value="Bạn đã đăng ký rồi? Thế thì bấm vào đây để bắt đầu thôi!!!">
 			</div>
 		</div>
     </div>

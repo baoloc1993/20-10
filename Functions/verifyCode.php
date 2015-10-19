@@ -22,6 +22,7 @@ if ($result->num_rows > 0) {
 	// get the name in order to output a hello sentence
     $row = $result->fetch_assoc();
     echo $result = $row["name"];
+	$email = $row["email"];
 } else {
 	// in case email has not existed yet
     // insert new record to database

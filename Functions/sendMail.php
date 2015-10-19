@@ -21,7 +21,7 @@ function sendMail($addr, $name, $subject, $body, $altbody) {
 	$mail = new PHPMailer;
 
 	//$mail->SMTPDebug = 3;	// Enable verbose debug output
-
+	$mail->CharSet = 'UTF-8'; // Encode using Unicode
 	$mail->isSMTP();	// Set mailer to use SMTP
 	$mail->Host = 'smtp.gmail.com';	// Specify main and backup SMTP servers
 	$mail->SMTPAuth = true;	// Enable SMTP authentication

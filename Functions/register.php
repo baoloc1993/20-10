@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 include("db_connect.php");
 include("activationCodeGenerator.php");
 include("sendMail.php");
@@ -38,15 +38,15 @@ if ($result->num_rows > 0) {
 }
 
 // Initial email content
-$subject = "Spinning mung ngay phu nu Viet Nam 20-10";
+$subject = "Chúc mừng ngày phụ nữ Việt Nam 20-10";
 $body = "Hi " . $name . "!<br><br>";
-$body .= "Ban da dang ky tham gia chuong trinh <em>Spinning mung ngay phu nu Viet Nam 20-10</em>&nbsp;cua hoi con trai VNNTU.<br><br>";
-$body .= "Verification code cua ban la <b>" . $actcode . "</b>.<br><br>";
-$body .= "Ban co the vao <em>http://www.vnntu.com/20_10/verification.php</em> de kich hoat.<br><br>";
-$body .= "Chuc ban co mot ngay phu nu Viet Nam vui ve!<br>";
-$body .= "Hoi con trai VNNTU.";
-$altbody = "Hi " . $name ."! Ban da dang ky tham gia chuong trinh Spinning mung ngay phu nu Viet Nam 20-10 cua hoi con trai VNNTU. ";
-$altbody .= "Verification code cua ban la " . $actcode . ". Chuc ban co mot ngay phu nu Viet Nam vui ve. Hoi con trai VNNTU.";
+$body .= "Bạn đã đăng ký tham gia chương trình chào mừng <em>ngày phụ nữ Việt Nam 20-10</em>&nbsp;của hội con trai VNNTU.<br><br>";
+$body .= "Verification code của bạn là <b>" . $actcode . "</b>.<br><br>";
+$body .= "Bạn có thể vào <em>http://www.vnntu.com/20_10/verification.php</em> để kích hoạt.<br><br>";
+$body .= "Chúc bạn một ngày phụ nữ Việt Nam vui vẻ!<br>";
+$body .= "From hội con trai VNNTU with love.";
+$altbody = "Hi " . $name ."! Bạn đã đăng ký tham gia chương trình chào mừng ngày phụ nữ Việt Nam 20-10 của hội con trai VNNTU. ";
+$altbody .= "Verification code của bạn là " . $actcode . ". Chúc bạn một ngày phụ nữ Việt Nam vui vẻ! From hội con trai VNNTU with love.";
 
 echo sendMail($email, $name, $subject, $body, $altbody);	// Send email
 

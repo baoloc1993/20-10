@@ -1,24 +1,7 @@
 <?php
 include("security.php");	// For authentification
 include("../Functions/db_connect.php");	// Open connection to database
-
-/**
- * SELECT data from id and table to display
- */
-function selectData($id, $table, $column) {
-	include("../Functions/db_connect.php");	// Open connection to database
-	$sql = "SELECT * FROM " . $table . " WHERE id=" . $id;	// SQL query
-	$result = $conn->query($sql);	// Execute SQL query
-
-	if ($result->num_rows > 0) {
-		// output data of each row
-		while($row = $result->fetch_assoc()) {
-			return $row[$column];
-		}
-	} else {
-		return "null";
-	}
-}
+include("../Functions/selectData.php");	// Include function to select a specific id from a table
 
 /**
  * SELECT data from result to display

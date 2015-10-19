@@ -45,8 +45,8 @@ var sm = (function(undefined){
 	function init(){
 
 		// HERE TO PASS PARAMETER FROM ANH HUNG
-		reels[0][2] = 'Nhat',
-		reels[1][2] = 'An waffle',
+		reels[0][2] = 'Night Walker',
+		reels[1][2] = 'Di dao dem',
 
 		$reels = $('.reel').each(function(i, el){
 			el.innerHTML = '<div><p>' + reels[i].join('</p><p>') + '</p></div><div><p>' + reels[i].join('</p><p>') + '</p></div>'
@@ -54,14 +54,21 @@ var sm = (function(undefined){
 
 		$msg = $('.msg');
 
-		$('button').click(action);
+		//$('button').click(action);
+		$('#arm').click(function(e) {
+			var arm = $(this).addClass('clicked'),
+				delay = setTimeout(function() { arm.removeClass('clicked') }, 500);
+			e.preventDefault();
+			action();
+		});
+		
 	}
 
 	function action(){
 		if (start !== undefined) return;
 
 		for (var i = 0; i < 2; ++i) {
-			speeds[i] = Math.random() + 10.5;	
+			speeds[i] = Math.random() + 5.5;	
 			r[i] = height / 3;
 		}
 

@@ -1,5 +1,5 @@
 * {
-  font-family: Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+  font-family: 'EB Garamond', serif;
 }
 
 .control-label {
@@ -40,9 +40,9 @@
   z-index: -99;
 }
 
-h1, h2 {
-  text-align:center;
-  font-size: 1.75em;
+h1, h2, h3, h2>span {
+  font-family: 'Playfair Display', serif;
+  text-align: center;
   font-weight: normal;
   color: #ddd;
   margin: 0;
@@ -53,13 +53,30 @@ a {
 }
 
 h1 {
-  font-size: 260px;
+  font-size: 240px;
+}
+
+h1 > span {
+  font-size: 100px;
+  margin: 0px;
 }
 
 h2 {
-  font-size: 82px;
+  font-size: 73px;
   margin-top: 20px;
   margin-bottom: 50px;
+}
+
+h2 > span {
+  font-size: 100px;
+  font-weight: bold;
+}
+
+h3 {
+  font-family: 'Arizonia', Helvetica, cursive;
+  font-size: 160px;
+  margin-top: -30px;
+  margin-bottom: -15px;
 }
 
 #main-form-container {
@@ -98,7 +115,7 @@ h2 {
 .ghost-button-success:active {
   border: 1px solid #98FB98;
   background-color: rgba(152,251,152, 0.3);
-  color: #0000;
+  color: #fff;
 }
 
 
@@ -106,4 +123,23 @@ h2 {
   color: white;
   padding: 0;
   margin: -10px;
+}
+
+.input-lg {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.input-lg::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #000;
+}
+.input-lg:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #000;
+   opacity:  1;
+}
+.input-lg::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #000;
+   opacity:  1;
+}
+.input-lg:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #000;
 }

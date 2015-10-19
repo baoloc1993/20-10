@@ -35,13 +35,19 @@ var sm = (function(undefined){
 		speeds = [],
 		r = [],
 		reels = [
-			['Huy',   'Nhat',   'Hung', 'Luis', 'Fabio', 'VV'],
-			['Nhay du',  'di choi voi 10', 'an waffle']
+			['Huy',   'Ten ban nam',   '<Printed value>', 'Luis', 'Fabio', 'VV'],
+			['Nhay du',  'Ten task', '<Printed value>', 'Task 3', 'Task 4', 'Task 5']
 		],
+
 		$reels, $msg,
 		start;
 
 	function init(){
+
+		// HERE TO PASS PARAMETER FROM ANH HUNG
+		reels[0][2] = 'Nhat',
+		reels[1][2] = 'An waffle',
+
 		$reels = $('.reel').each(function(i, el){
 			el.innerHTML = '<div><p>' + reels[i].join('</p><p>') + '</p></div><div><p>' + reels[i].join('</p><p>') + '</p></div>'
 		});
@@ -55,8 +61,8 @@ var sm = (function(undefined){
 		if (start !== undefined) return;
 
 		for (var i = 0; i < 2; ++i) {
-			speeds[i] = Math.random() + 1.5;	
-			r[i] = (Math.random() * 3 | 0) * height / 3;
+			speeds[i] = Math.random() + 10.5;	
+			r[i] = height / 3;
 		}
 
 		$msg.html('Spinning...');

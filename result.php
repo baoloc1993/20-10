@@ -45,12 +45,11 @@ if ($result == -1) {
 <script>
 $(document).ready(function(){
     $("#spin").click(function(){
-		$.get("Functions/play.php?code=<?php echo $actcode; ?>", function(data){
+		$.get("Functions/play.php?code=<?php echo $actcode; ?>", function(data, status){
 			var result = data.split(",");
 			$("#name").text(result[0]);
 			$("#job").text(result[1]);
 		});
-		
         $("#visual_man").fadeOut(3000, function() {
 			$("#txt1").fadeIn(2000, function() {
 				$("#txt2").fadeIn(1000, function() {

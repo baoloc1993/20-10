@@ -14,19 +14,19 @@ if (isset($_GET['method'])) {	// Get method to handle
 	$method = "";
 }
 
-if (isset($_GET['email']) && isset($_GET['name'])) {	// Get email and name to handle
-	$email = $_GET["email"];
-	$name = $_GET["name"];
+if (isset($_GET['job']) && isset($_GET['descr'])) {	// Get job and description to handle
+	$job = $_GET["job"];
+	$descr = $_GET["descr"];
 } else {
-	$email = "";
-	$name = "";
+	$job = "";
+	$descr = "";
 }
 
 /**
- * DELETE data from male_participant
+ * DELETE data from job
  */
 if ($method == "del") {
-	$sql_del = "DELETE FROM male_participant WHERE id='" . $id . "'";
+	$sql_del = "DELETE FROM job WHERE id='" . $id . "'";
 	if ($conn->query($sql_del) === TRUE) {
 		// Success
 	} else {
@@ -35,10 +35,10 @@ if ($method == "del") {
 }
 
 /**
- * ADD data to male_participant
+ * ADD data to job
  */
 if ($method == "add") {
-	$sql_add = "INSERT INTO male_participant (name, email) VALUES ('" . $name . "','" . $email . "@e.ntu.edu.sg')";
+	$sql_add = "INSERT INTO job (job, descr) VALUES ('" . $job . "','" . $descr . "')";
 	if ($conn->query($sql_add) === TRUE) {
 		// Success
 	} else {
@@ -47,17 +47,17 @@ if ($method == "add") {
 }
 
 /**
- * SELECT data from male_participant to display
+ * SELECT data from job to display
  */
-$sql_sel = "SELECT * FROM male_participant";	// SQL query
+$sql_sel = "SELECT * FROM job";	// SQL query
 $result = $conn->query($sql_sel);	// Execute SQL query
 
-$output = "";	// To store the list of male emails in order to display
+$output = "";	// To store the list of jobs in order to display
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        $output .= "<tr><td>" . $row['id'] . "</td><td>" . $row['name'] . "</td><td>";
-		$output .= $row['email'] . "</td><td>";
+        $output .= "<tr><td>" . $row['id'] . "</td><td>" . $row['job'] . "</td><td>";
+		$output .= $row['descr'] . "</td><td>";
 		$output .= "<button type='button' id='" . $row['id'] . "' class='btn btn-danger btn-sm dbl-del'><span class='glyphicon glyphicon-remove-sign'></span> Remove</button></td></tr>";
     }
 } else {
@@ -83,14 +83,13 @@ $conn->close();
   <form>
 	<div class="form-group">
 		<div class="col-sm-5">
-			<input type="text" class="form-control" id="name" name="name" placeholder="Enter name" required>
+			<input type="text" class="form-control" id="job" name="job" placeholder="Enter job" required>
 		</div>
 		<div class="col-sm-7">
 			<div class="input-group">
 				<input type="text" class="form-control" id="pw" name="pw" value="c0ntr@1/vnNtu" style="display:none">
 				<input type="text" class="form-control" id="method" name="method" value="add" style="display:none">
-				<input type="text" class="form-control" id="email" name="email" placeholder="Enter email" required>
-				<span class="input-group-addon">@e.ntu.edu.sg</span>
+				<input type="text" class="form-control" id="descr" name="descr" placeholder="Enter job description" required>
 				<span class="input-group-btn">
 					<input class="btn btn-success btn-block" id="submit" type="submit" value="Add">
 				</span>
@@ -105,8 +104,8 @@ $conn->close();
 		<thead>
 		  <tr>
 			<th>ID</th>
-			<th>Name</th>
-			<th>Email</th>
+			<th>Job</th>
+			<th>Description</th>
 			<th>Remove?</th>
 		  </tr>
 		</thead>
@@ -123,7 +122,7 @@ $conn->close();
 $(document).ready(function(){
 
 	$(".dbl-del").click(function() {
-		window.location.replace('maleparticipant.php?method=del&id=' + $(this).attr('id').trim() + "&pw=c0ntr@1/vnNtu");
+		window.location.replace('job.php?method=del&id=' + $(this).attr('id').trim() + "&pw=c0ntr@1/vnNtu");
 	});
 	
 });

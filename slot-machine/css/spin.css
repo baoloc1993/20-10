@@ -40,9 +40,9 @@
   }
 }
 #equation {
-  position: absolute;
-  left: 55%;
-  top: 650px;
+  position: relative;
+  left: 57%;
+  top: 35px;
 }
 #equation span {
   display: inline-block;

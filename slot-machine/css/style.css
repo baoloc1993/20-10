@@ -15,16 +15,35 @@ body, input, select, textarea {
   font-family: Segoe, 'Segoe UI', Optima, Arial, sans-serif;
 }
 
-html {
+/*html {
   background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('../background.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}*/
+
+#bg {
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+  z-index: -100;
+}
+#bg img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
 }
 
 .overlay{
-  background: rgba(255,0,255,0.2);
+  background: rgba(205,92,92,0.32);
   overflow: hidden;
   position: fixed;
   width: 100%;
@@ -33,14 +52,14 @@ html {
   top: 0;
   min-height: 100%;
   width: 100%;
-  z-index: 2;
+  z-index: -99;
 }
 
 h1, h2 {
   text-align:center;
   font-size: 1.75em;
   font-weight: normal;
-  color: #bbb;
+  color: #ddd;
   margin: 0;
 }
 
@@ -49,25 +68,18 @@ a {
 }
 
 h1 {
-  font-size: 230px;
+  font-size: 260px;
 }
 
 h2 {
-  font-size: 70px;
+  font-size: 82px;
   margin-top: -20px;
 }
 
 #sm {
-background: rgb(238,238,238, 0.3);
-background: -moz-linear-gradient(top, rgba(238,238,238, 0.3) 0%, rgba(204,204,204, 0.3) 100%);
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(238,238,238,0.3)), color-stop(100%,rgba(204,204,204,0.3)));
-background: -webkit-linear-gradient(top, rgba(238,238,238,0.3) 0%,rgba(204,204,204,0.3) 100%);
-background: -o-linear-gradient(top, rgba(238,238,238,0.3) 0%,rgba(204,204,204,0.3) 100%);
-background: -ms-linear-gradient(top, rgba(238,238,238,0.3) 0%,rgba(204,204,204,0.3) 100%);
-background: linear-gradient(top, rgba(238,238,238,0.3) 0%,rgba(204,204,204,0.3) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 );
+  background: rgbA(0,0,0, 0.3);
 
-  width: 540px; height: ;
+  width: 640px; height: 300px;
   margin: 40px auto 20px;
   padding: 20px;
   border-radius: 15px;
@@ -79,17 +91,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', end
 
 #sm, .lever button {box-shadow: 0 3px 9px rgba(0,0,0,.25)}
 
-.group, .reel, .lever {display: inline-block;}
+.group, .reel, .lever {
+  display: inline-block;
+}
 
 .group, .lever {
-  background: rgb(252,234,187);
-  background: -moz-linear-gradient(top, rgba(252,234,187,1) 0%, rgba(252,205,77,1) 50%, rgba(248,181,0,1) 51%, rgba(251,223,147,1) 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,234,187,1)), color-stop(50%,rgba(252,205,77,1)), color-stop(51%,rgba(248,181,0,1)), color-stop(100%,rgba(251,223,147,1)));
-  background: -webkit-linear-gradient(top, rgba(252,234,187,1) 0%,rgba(252,205,77,1) 50%,rgba(248,181,0,1) 51%,rgba(251,223,147,1) 100%);
-  background: -o-linear-gradient(top, rgba(252,234,187,1) 0%,rgba(252,205,77,1) 50%,rgba(248,181,0,1) 51%,rgba(251,223,147,1) 100%);
-  background: -ms-linear-gradient(top, rgba(252,234,187,1) 0%,rgba(252,205,77,1) 50%,rgba(248,181,0,1) 51%,rgba(251,223,147,1) 100%);
-  background: linear-gradient(top, rgba(252,234,187,1) 0%,rgba(252,205,77,1) 50%,rgba(248,181,0,1) 51%,rgba(251,223,147,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb', endColorstr='#fbdf93',GradientType=0 );
+  background: rgba(252,234,187, 0.3);
+  border: 1px solid #fceabb;
 }
 
 .group {
@@ -116,6 +124,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     margin-right: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 7px rgba(0,0,0,.3) inset, 0 0px 1px rgba(0,0,0,.2) inset;
+    font-size: 1.2em;
   }
     .reel div {
       position: relative;
@@ -130,15 +139,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     .reel p:nth-child(2) {color:#690}
     .reel p:nth-child(3) {color:#630}
 
-
-.msg {
-  text-align: center;
-  color: #bbb;
-  font-size:1.8em;
-  padding: 25px 0 5px;
-  text-shadow: 0 -1px 0 rgba(0,0,0,.3), 0 1px 0 rgba(255,255,255,.5);
-}
-
 a {
   color: #94A2F1;
   margin-top: 15px;
@@ -152,9 +152,13 @@ a:hover {
 }
 
 #guy-name {
- width: 80px;
+ width: 130px;
 }
 
 #guy-task {
-  width: 350px;
+  width: 400px;
+}
+
+.container {
+  margin: auto;
 }

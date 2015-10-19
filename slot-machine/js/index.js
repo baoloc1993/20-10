@@ -52,8 +52,6 @@ var sm = (function(undefined){
 			el.innerHTML = '<div><p>' + reels[i].join('</p><p>') + '</p></div><div><p>' + reels[i].join('</p><p>') + '</p></div>'
 		});
 
-		$msg = $('.msg');
-
 		//$('button').click(action);
 		$('#arm').click(function(e) {
 			var arm = $(this).addClass('clicked'),
@@ -72,7 +70,6 @@ var sm = (function(undefined){
 			r[i] = height / 3;
 		}
 
-		$msg.html('Spinning...');
 		animate();
 	}
 
@@ -88,12 +85,8 @@ var sm = (function(undefined){
 		else {
 			start = undefined;
 		}
-		result();
 	}
 
-	function result() {
-		$msg.html('Ban da dc ... & ...');
-	}
 	return {init: init}
 
 })();

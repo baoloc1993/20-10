@@ -118,7 +118,6 @@ h3 {
   color: #fff;
 }
 
-
 .btn-link {
   color: white;
   padding: 0;
@@ -132,14 +131,18 @@ h3 {
 .input-lg::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color:    #000;
 }
+
 .input-lg:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
    color:    #000;
    opacity:  1;
 }
+
 .input-lg::-moz-placeholder { /* Mozilla Firefox 19+ */
    color:    #000;
    opacity:  1;
 }
+
 .input-lg:-ms-input-placeholder { /* Internet Explorer 10-11 */
    color:    #000;
 }
+

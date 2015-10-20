@@ -50,6 +50,17 @@ function startRandom() {
 				$maleid[$i]  = $row["id"];
 				$malename[$i] = $row["name"];
 				$i ++;
+			}			
+		}
+		$result = $conn->query($sql);	// Execute the SQL again
+		$i = 0;
+		if (!isset($maleid)) {
+			while($row = $result->fetch_assoc()) {
+				if (searchData($row["id"], "result", "maleid") == 1) {
+					$maleid[$i]  = $row["id"];
+					$malename[$i] = $row["name"];
+					$i ++;
+				}
 			}
 		}
 	} else {
@@ -101,6 +112,8 @@ function startRandom() {
 	// Output text: name of selected male participant and job
 	//
 	echo $malename[ $index_selected_maleid ] . "," . $jobdescr[ $index_selected_jobid ];
+	
+	$conn->close();
 }
 
 startRandom();

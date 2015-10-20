@@ -1,13 +1,15 @@
 <div style="display:none">
 <?php include("Functions/verifyCode.php");	// verify the code ?>
+<?php include("Functions/searchData.php");	// verify the code ?>
 </div>
 <?php
+echo $result;
 if ($result == -1) {
 	function Redirect($url, $permanent = false)	{
 		header('Location: ' . $url, true, $permanent ? 301 : 302); exit();
 	}
 	Redirect('verification.php', false);	// Redirect to verification page
-};
+}
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +39,7 @@ if ($result == -1) {
       <h2>CON <span>TRAI</span> VNNTU</h2>
       <div id="sm">
         <div class="group">
-          <div class="reel" id ="guy-name"><a href="https://www.facebook.com/tranvu.xuannhat"> </a></div> 
+          <div class="reel" id ="guy-name"></div> 
           <div class="reel" id ="guy-task"></div>
         </div>
         <div id="equation" class="done">
@@ -132,17 +134,28 @@ if ($result == -1) {
 	})();
 
 	/*
-		getResult from play.php
+		get random result from play.php
 	*/
 
-	function getResult(callback) {
+	function getRandomResult( callback) {
 		$.get("Functions/play.php?code=<?php echo $actcode; ?>", function(data){
 			var result = data.split(",");
 			$("#name").text(result[0]);
 			$("#job").text(result[1]);
-			console.log("getResult");
+			//console.log("getRandomResult");
 			callback();
 		});	
+	};
+
+	/*
+		set result that is already available
+	*/
+
+	function setResult(callback) {
+		$("#name").text(<?php echo "'".$guy_name."'"?>);
+		$("#job").text(<?php echo "'".$guy_task."'"?>);
+		//console.log("setResult");
+		callback();
 	};
 
 	/* 
@@ -153,7 +166,7 @@ if ($result == -1) {
 			$.get("Functions/sendMailResult.php?name="+$("#name").text()+"&job="+$("#job").text()+"&email=<?php echo $email ?>", function(data){
 				//
 				$("#shoulder").hide();
-				console.log("emailAndHide");
+				//console.log("emailAndHide");
 			});
 		}
 	};
@@ -163,13 +176,23 @@ if ($result == -1) {
 	*/
 	function startUpSlotMachine() {
 		$(sm.init).ready(function(){
-			console.log("startUp");
+			//console.log("startUp");
 		});
 
 	};
 
 $(document).ready(function(){
-	getResult(startUpSlotMachine);
+	<?php
+	if ($result != -2) { ?>
+		console.log("result != -2");
+		getRandomResult(startUpSlotMachine);
+	<?php 
+		}
+	else { ?>
+		setResult(startUpSlotMachine)
+	<?php 
+		}
+	?>
 });
 </script>
 

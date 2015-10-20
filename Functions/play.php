@@ -10,7 +10,7 @@ define("JOB_THRESHOLD", 4);
 function startRandom() {
 	include("db_connect.php");	// Connect to database
 	include("searchData.php");	// Include function to select a specific record of a given id
-	
+	//mysql_query("SET NAMES 'utf8'");
 	if (isset($_GET["code"])) {	// Get the verification code from GET method
 		$actcode = $_GET["code"];
 	} else {

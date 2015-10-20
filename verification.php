@@ -14,11 +14,20 @@ if (isset($_GET['code'])) {
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Arizonia' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
+	<div id="bg">
+    	<img src="images/background.jpg" alt="">
+    </div>
+	<div class="overlay"> </div>
 <div class="container">
-<br><br><br>
+	<h1>20<span> </span><span class="glyphicon glyphicon-heart" aria-hidden="true"></span><span> </span>10</h1>
+	<h3>from</h3>
+	<h2>CON <span>TRAI</span> VNNTU</h2>
 <form class="form-horizontal" role="form">
   <div class="row">
     <div class="col-sm-2"></div>
